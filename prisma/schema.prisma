@@ -38,18 +38,6 @@ model Session {
   @@map("sessions")
 }
 
-model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime? @map("email_verified")
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-
-  @@map("users")
-}
-
 model VerificationToken {
   identifier String
   token      String
@@ -57,4 +45,61 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verificationtokens")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  role          ROLE      @default(USER)
+  name          String?
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+
+  tags Tag[]
+  Todo Todo[]
+  Note Note[]
+
+  @@map("users")
+}
+
+model Todo {
+  id             String   @id @default(cuid())
+  text           String
+  complete       Boolean  @default(false)
+  dateToComplete DateTime
+  userId         String   @map("user_id")
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tags           Tag[]    @relation("TodoTags")
+
+  @@map("todos")
+}
+
+model Note {
+  id          String   @id @default(cuid())
+  title       String
+  text        String
+  dateCreated DateTime @default(now())
+  userId      String   @map("user_id")
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tags        Tag[]    @relation("NoteTags")
+
+  @@map("notes")
+}
+
+model Tag {
+  id     String @id @default(cuid())
+  name   String @unique
+  userId String @map("user_id")
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  todos  Todo[] @relation("TodoTags")
+  notes  Note[] @relation("NoteTags")
+
+  @@map("tags")
+}
+
+enum ROLE {
+  ADMIN
+  USER
 }

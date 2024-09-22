@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import {ComposeChildren} from "@/lib/react";
-import {AppSessionProvider} from "@/entities/session/app-session-provider";
+import {AppSessionProvider} from "@/entities/user/app-session-provider";
 import {QueryClientProvider} from "@tanstack/react-query";
 import {queryClient} from "@/components/api/query-client";
 

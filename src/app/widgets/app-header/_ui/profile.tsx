@@ -12,7 +12,7 @@ import { LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import Link from "next/link";
-import {useAppSession} from "@/entities/session/use-app-session";
+import {useAppSession} from "@/entities/user/_vm/use-app-session";
 import {Skeleton} from "@/components/ui/skeleton";
 import {SignInButton} from "@/functional/auth/sign-in-button";
 import {useSignOut} from "@/functional/auth/use-sign-out";
@@ -39,7 +39,7 @@ export function Profile() {
                     className="p-px rounded-full self-center h-8 w-8"
                 >
                     <Avatar className="h-8 w-8">
-                        <AvatarImage src={user?.image} />
+                        <AvatarImage src={user?.image ?? ""} />
                         <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
                 </Button>
