@@ -5,6 +5,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --color-yellow: #FFC800;
+  --color-light-blue: #49CCF9;
+  --color-pink: #FD71AF;
+  --color-purple: #7B68EE;
+  --color-blue: #5577FF;
+  --color-green: #00B884;
+
+  --color-yellow-bg: #fbe9b2;
+  --color-light-blue-bg: #c4ebfd;
+  --color-pink-bg: #faddef;
+  --color-purple-bg: #d3ccfa;
+  --color-blue-bg: #c8d1ff;
+  --color-green-bg: #c7ebe6;
 }
 
 @media (prefers-color-scheme: dark) {
