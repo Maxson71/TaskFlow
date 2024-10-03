@@ -7,7 +7,7 @@ export function Tag({ text }: { text: string }) {
 
     return (
         <div
-            className={"inline-flex items-center.5 py-1 rounded-full "}
+            className={"inline-flex items-center.5 py-1 px-2.5 rounded-full "}
             style={{ backgroundColor: bgColor }}
         >
             <p className={cn(

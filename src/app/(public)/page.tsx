@@ -1,13 +1,10 @@
 import {Tag} from "@/app/widgets/tag/tag";
+import {NodesBlock} from "@/app/widgets/nodes/nodes-block";
 
 export default function Home() {
   return (
-    <div className="flex justify-center content-center font-semibold">
-      Public Page
-        <Tag text="AI"/>
-        <Tag text="Sport"/>
-        <Tag text="Program"/>
-        <Tag text="Python"/>
+    <div className="flex flex-col justify-center content-center font-semibold">
+        <NodesBlock/>
     </div>
   );
 }

@@ -15,7 +15,7 @@ export function getColorForTag(text: string) {
         hash = text.charCodeAt(i) + ((hash << 5) - hash);
     }
 
-    const { color, bgColor } = colorVars[Math.abs(hash) % colorVars.length]; // Отримуємо об'єкт кольорів
+    const { color, bgColor } = colorVars[Math.abs(hash) % colorVars.length];
 
     return { color, bgColor };
 }
