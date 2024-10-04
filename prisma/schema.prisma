@@ -58,8 +58,8 @@ model User {
   sessions      Session[]
 
   tags Tag[]
-  Todo Todo[]
-  Note Note[]
+  nodo Todo[]
+  note Note[]
 
   @@map("users")
 }

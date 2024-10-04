@@ -13,6 +13,9 @@ export type UserEntity = {
     emailVerified?: Date | null;
     name?: string | null;
     image?: string | null;
+    note?: [] | null;
+    tag ?: [] | null;
+    todo ?: [] | null;
 };
 
 export type SessionEntity = {
@@ -22,6 +25,15 @@ export type SessionEntity = {
         role: Role;
         name?: string | null;
         image?: string | null;
+        note?: {
+            id: string
+            title: string
+            text: string
+            dateCreated: string
+            tags: { name: string }[]
+        }[] | null;
+        tag ?: [] | null;
+        todo ?: [] | null;
     };
     expires: string;
 };

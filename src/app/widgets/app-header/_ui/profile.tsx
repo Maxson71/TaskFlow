@@ -16,6 +16,7 @@ import {useAppSession} from "@/entities/user/_vm/use-app-session";
 import {Skeleton} from "@/components/ui/skeleton";
 import {SignInButton} from "@/functional/auth/sign-in-button";
 import {useSignOut} from "@/functional/auth/use-sign-out";
+import {getProfileDisplayName} from "@/entities/user/_vm/get-profile-display-name";
 
 export function Profile() {
     const session = useAppSession();
@@ -48,7 +49,7 @@ export function Profile() {
                 <DropdownMenuLabel>
                     <p>Мій аккаунт</p>
                     <p className="text-xs text-muted-foreground overflow-hidden text-ellipsis">
-                        {user?.name}
+                        {user ? getProfileDisplayName(user) : undefined}
                     </p>
                 </DropdownMenuLabel>
                 <DropdownMenuGroup></DropdownMenuGroup>

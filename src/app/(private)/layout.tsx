@@ -1,5 +1,5 @@
 import { AppHeader } from "@/app/widgets/app-header/app-header";
-import {NodesBlock} from "@/app/widgets/nodes/nodes-block";
+import {NoteBlock} from "@/app/widgets/note/note-block";
 
 export default async function Layout({
                                          children,
@@ -10,7 +10,7 @@ export default async function Layout({
         <>
             <AppHeader variant={"private"}/>
             {children}
-            <NodesBlock/>
+            <NoteBlock/>
         </>
     );
 }

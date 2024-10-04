@@ -1,4 +1,5 @@
 import { AppHeader } from "@/app/widgets/app-header/app-header";
+import { NoteBlock } from "@/app/widgets/note/note-block";
 
 export default async function Layout({
                                          children,
@@ -8,6 +9,7 @@ export default async function Layout({
     return (
         <>
             <AppHeader variant={"public"}/>
+            <NoteBlock/>
             {children}
         </>
     );
