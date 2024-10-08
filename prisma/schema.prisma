@@ -57,9 +57,9 @@ model User {
   accounts      Account[]
   sessions      Session[]
 
-  tags Tag[]
-  nodo Todo[]
-  note Note[]
+  tags  Tag[]
+  todos Todo[]
+  notes Note[]
 
   @@map("users")
 }
@@ -77,13 +77,13 @@ model Todo {
 }
 
 model Note {
-  id          String   @id @default(cuid())
-  title       String
-  text        String
-  dateCreated DateTime @default(now())
-  userId      String   @map("user_id")
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  tags        Tag[]    @relation("NoteTags")
+  id        String   @id @default(cuid())
+  title     String
+  text      String
+  createdAt DateTime @default(now())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tags      Tag[]    @relation("NoteTags")
 
   @@map("notes")
 }

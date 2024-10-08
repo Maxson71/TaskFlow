@@ -8,7 +8,7 @@ import { FaPlus } from "react-icons/fa";
 export function NoteBlock() {
   return (
     <div className="space-y-4 max-w-96 px-5">
-      <div className="flex space-between items-center justify-between pb-2 shadow">
+      <div className="flex space-between items-center justify-between pb-2 border-b-0 border-gray-200">
         <div className="flex space-x-1 items-center justify-center">
           <div className="h-4 w-4 bg-gray-300 rounded flex items-center justify-center">
             <BiSolidPencil size="12" color="gray" />
@@ -48,7 +48,7 @@ export function NoteBlock() {
             <Tag text="Python" />
           </div>
         </div>
-        <Notes />
+        <Notes/>
       </div>
     </div>
   );

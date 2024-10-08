@@ -1,16 +1,9 @@
 "use client";
 import {Tag} from "@/app/widgets/tag/tag";
 import {FiFileText} from "react-icons/fi";
+import {NoteEntity} from "@/entities/note/_domain/types";
 
-interface Note {
-    id: string;
-    title: string;
-    text: string;
-    dateCreated: string;
-    tags: { name: string }[];
-}
-
-export function Note({ note }: { note: Note }) {
+export function Note({ note }: { note: NoteEntity }) {
     return (
         <div className="flex justify-center content-center">
             <div
@@ -21,7 +14,7 @@ export function Note({ note }: { note: Note }) {
                             className="flex items-center justify-center w-5 h-full px-0.5 py-0.5 bg-black bg-opacity-0">
                             <FiFileText/>
                         </div>
-                        <p className="text-xs text-gray-400">{new Date(note.dateCreated).toLocaleDateString()}</p>
+                        <p className="text-xs text-gray-400">{note.createdAt? new Date(note.createdAt).toLocaleDateString() : ""}</p>
                     </div>
                     <div className="w-5 h-1 bg-gray-600 rounded-full"/>
                 </div>
@@ -29,11 +22,15 @@ export function Note({ note }: { note: Note }) {
                     <p className="w-full text-sm font-semibold text-gray-600">{note.title}</p>
                     <p className="w-full text-xs font-medium text-gray-400">{note.text}</p>
                 </div>
-                <div className="inline-flex space-x-2 items-start justify-start">
-                    {note.tags.map((tag) => (
-                        <Tag key={tag.name} text={tag.name}/>
-                    ))}
-                </div>
+                {note.tags ?
+                    <div className="inline-flex space-x-2 items-start justify-start">
+                        {note.tags.map((tag) => (
+                            <Tag key={tag.name} text={tag.name}/>
+                        ))}
+                    </div>
+                    :
+                    null
+                }
             </div>
         </div>
     );
