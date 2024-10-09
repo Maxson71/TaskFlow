@@ -11,11 +11,11 @@ export function Notes() {
   const user = session?.data?.user;
 
   if (session.status === "loading") {
-    return <Skeleton className="w-8 h-8 rounded-full" />;
+    return <Skeleton className="w-96 h-8 bg-gray-200 rounded-lg"/>;
   }
 
   if (session.status === "unauthenticated") {
-    return <SignInButton />;
+    return <SignInButton/>
   }
 
   const notesQuery = useQuery({
@@ -23,7 +23,7 @@ export function Notes() {
   })
 
   if (notesQuery.isPending) {
-    return <Skeleton className="w-8 h-8 rounded-full" />;
+    return <Skeleton className="w-96 h-8 bg-gray-200 rounded-lg"/>;
   }
 
   if (!notesQuery.data) {
