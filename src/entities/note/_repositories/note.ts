@@ -1,9 +1,9 @@
 import { dbClient } from "@/lib/db";
 import { UserId } from "@/entities/user/_domain/types";
-import {NoteEntity, NoteId} from "@/entities/note/_domain/types";
+import {NoteEntity, NoteId, NotesEntity} from "@/entities/note/_domain/types";
 
 export class NoteRepository {
-    async getUserNotesById(userId: UserId) : Promise<NoteEntity> {
+    async getUserNotesById(userId: UserId) : Promise<NotesEntity> {
         return dbClient.note.findMany({
             where: {
                 userId,
